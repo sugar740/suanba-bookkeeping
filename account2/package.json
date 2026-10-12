@@ -1,0 +1,25 @@
+{
+  "name": "harmony-expense-uni",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev:mp-weixin": "uni -p mp-weixin",
+    "build:mp-weixin": "uni build -p mp-weixin",
+    "dev:h5": "uni",
+    "build:h5": "uni build"
+  },
+  "dependencies": {
+    "@dcloudio/uni-ui": "^1.5.7",
+    "vue": "^3.4.0"
+  },
+  "devDependencies": {
+    "@dcloudio/uni-app": "3.0.0-alpha-4060720250515001",
+    "@dcloudio/uni-cli-shared": "3.0.0-alpha-4060720250515001",
+    "@dcloudio/uni-mp-weixin": "3.0.0-alpha-4060720250515001",
+    "@dcloudio/uni-stat": "3.0.0-alpha-4060720250515001",
+    "@dcloudio/vite-plugin-uni": "3.0.0-alpha-4060720250515001",
+    "sass": "^1.100.0",
+    "typescript": "^5.4.0",
+    "vite": "^5.2.0"
+  }
+}

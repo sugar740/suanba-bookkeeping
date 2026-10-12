@@ -1,0 +1,119 @@
+### 注册
+POST http://localhost:8081/api/user/register
+Content-Type: application/json
+
+{
+  "username": "test",
+  "password": "123456",
+  "nickname": "测试用户"
+}
+
+### 登录
+POST http://localhost:8081/api/user/login
+Content-Type: application/json
+
+{
+  "username": "test",
+  "password": "123456"
+}
+
+### 获取用户信息
+GET http://localhost:8081/api/user/info
+Authorization: Bearer {{token}}
+
+### 修改密码
+PUT http://localhost:8081/api/user/password
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+  "oldPassword": "123456",
+  "newPassword": "123456"
+}
+
+### 获取分类列表（全部）
+GET http://localhost:8081/api/category/list
+Authorization: Bearer {{token}}
+
+### 获取分类列表（仅支出）
+GET http://localhost:8081/api/category/list?type=0
+Authorization: Bearer {{token}}
+
+### 获取分类列表（仅收入）
+GET http://localhost:8081/api/category/list?type=1
+Authorization: Bearer {{token}}
+
+### 添加记账（支出）
+POST http://localhost:8081/api/expense
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+  "type": 0,
+  "amount": 35.00,
+  "categoryId": 1,
+  "remark": "午餐"
+}
+
+### 添加记账（收入）
+POST http://localhost:8081/api/expense
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+  "type": 1,
+  "amount": 5000,
+  "categoryId": 11,
+  "remark": "兼职收入"
+}
+
+### 记账列表（全部）
+GET http://localhost:8081/api/expense/list?page=1&size=10
+Authorization: Bearer {{token}}
+
+### 记账列表（仅支出筛选）
+GET http://localhost:8081/api/expense/list?type=0&page=1&size=10
+Authorization: Bearer {{token}}
+
+### 记账详情
+GET http://localhost:8081/api/expense/1
+Authorization: Bearer {{token}}
+
+### 修改记账
+PUT http://localhost:8081/api/expense/1
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+  "type": 0,
+  "amount": 50.00,
+  "categoryId": 1,
+  "remark": "早餐"
+}
+
+### 删除记账
+DELETE http://localhost:8081/api/expense/1
+Authorization: Bearer {{token}}
+
+### 分类统计（5月支出，饼图数据）
+GET http://localhost:8081/api/expense/statistics/category?type=0&startDate=2026-05-01&endDate=2026-05-31
+Authorization: Bearer {{token}}
+
+### 分类统计（5月收入，饼图数据）
+GET http://localhost:8081/api/expense/statistics/category?type=1&startDate=2026-05-01&endDate=2026-05-31
+Authorization: Bearer {{token}}
+
+### 月度趋势（柱状图数据）
+GET http://localhost:8081/api/expense/statistics/monthly?startDate=2026-01-01&endDate=2026-12-31
+Authorization: Bearer {{token}}
+
+
+### AI 对话
+
+POST http://localhost:8081/api/ai/chat
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+  "question": "我这个月支出最多的是哪一类？有什么省钱建议？"
+}
